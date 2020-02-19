@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Arthas from '@/components/helloArthas'
-import ArthasChildren from '@/components/ArthasChildren'
+import ArthasBoy from '@/components/ArthasBoy'
 import ArthasGirl from '@/components/ArthasGirl'
 // https://www.jianshu.com/p/5dff6811252d
 Vue.use(Router)
@@ -20,8 +20,8 @@ const routerList = [
     children: [
       {
         path: 'children',
-        name: 'ArthasChildren',
-        component: ArthasChildren
+        name: 'ArthasBoy',
+        component: ArthasBoy
       },
       {
         path: 'girl',
