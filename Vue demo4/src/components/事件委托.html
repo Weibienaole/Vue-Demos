@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="div">
+        <div class="div1">div1</div>
+        <div class="div2">div2</div>
+    </div>
+  </body>
+  <script>
+    /*
+    事件捕获   从window由上到下依次捕获事件，触发事件   由上到下
+    事件冒泡   事件到达目标节点后原路返回，依次触发事件  由下往上
+    通过addEventListener的第三个参数的Boolean来决定，默认为false  事件冒泡
+     
+    */
+    // window.onload = function() {
+    //   let body = document.querySelector("body");
+    //   let div = document.querySelector("#div");
+    //   body.addEventListener(
+    //     "click",
+    //     function() {
+    //       console.log("body");
+    //     },
+    //     true
+    //   );
+    //   div.addEventListener("click", function() {
+    //     console.log("div");
+    //   });
+    // };
+
+
+    /*
+    事件委托与新增节点绑定事件的关系
+    
+    事件委托优点  
+      1 提升性能每一个函数执行都会占用空间，只需一个事件代理来处理所有的事件，占用空间变少
+      2 动态监听  使用事件委托可以自动绑定事件即新增的节点不需要主动添加可以一样具有其他元素一样的事件
+    
+    */
+    // 虽然没有给div节点下的子节点添加事件，但由于事件冒泡，点击div1冒泡上去的时候执行了父元素的事件，这样做 div3这个新创建的子节点也可以通过冒泡获得事件
+    window.onload = function(){
+      let div = document.querySelector('#div')
+      div.addEventListener('click', function(e){
+        console.log(e.target, e)
+      })
+      let div3 = document.createElement('div')
+      div3.setAttribute('class', 'div3')
+      div3.innerHTML = 'div3'
+      div.appendChild(div3)
+    }
+  </script>
+</html>

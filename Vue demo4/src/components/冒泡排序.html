@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body></body>
+
+  <script>
+    let arr = [21, 123, 345, 4561, 23, 45, 12, 33, 1, 1, 4, 4, 123];
+    function bSort(arr) {
+      for (let i = 0; i < arr.length - 1; i++) {
+        for (let j = 0; j < arr.length - i - 1; j++) {
+          if (arr[j] > arr[j + 1]) {
+            let tem = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = tem;
+          }
+        }
+      }
+      return arr;
+    }
+    console.log(bSort(arr));
+
+    // function bSort(arr) {
+    //   var len = arr.length;
+    //   for (var i = 0; i < len - 1; i++) {
+    //     for (var j = 0; j < len - 1 - i; j++) {
+    //       // 相邻元素两两对比，元素交换，大的元素交换到后面
+    //       if (arr[j] > arr[j + 1]) {
+    //         var temp = arr[j];
+    //         arr[j] = arr[j + 1];
+    //         arr[j + 1] = temp;
+    //       }
+    //     }
+    //   }
+    //   return arr;
+    // }
+  </script>
+</html>
