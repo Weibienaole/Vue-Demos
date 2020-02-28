@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <a href="https://www.jianshu.com/p/08c07a953fa0">链接</a>
+    <a href="https://zhuanlan.zhihu.com/p/23090041?refer=study-fe">链接</a>
+</body>
+<script>
+  /*
+    每个对象都可以由一个原型_proto_ 这个原型还可以有它自己的原型，以此类推 形成一个原型链  当查找对象的特定属性的时候 先从这个对象内查找 找不到的话就在它的原型对象中查找，如果还是没有就在内部的原型对象的原型对象中查找，以此类推 这个操作被委托在原型链上 这就是原型链
+  
+  */
+  let a = {
+    b:3,
+    c:4
+  }
+  function aa(){
+    return 'asd'
+  }
+  console.log(a)
+
+  // 每一个对象内部都默认有一个_proto_属性，_proto_内部还有一个_proto_，当你控制台打印这个对象内部的值的时候，浏览器先会在对象内查找，如果没有就在这个对象的_proto_内查找，如果还是没有就在下一层继续查找，知道找到这个值或者_proto_等于null  这个读取属性就是搜索过程，而搜索过程是沿着_proto_这个链子一直走的，这个链子就是原型链
+
+  // 读属性的时候会沿着原型链进行搜索
+  // 新增的时候不会去看原型链
+  // _proto_总是指向构造函数的原型对象，也就是prototype，他是对象独有的
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    /*
+  sessionStorage  localStorage Cookies 区别
+
+  sessionStorgae
+    会话存储，刷新页面后会存在，但关闭后会清空
+
+  localStorage
+    长久级别的本地存储
+
+  Cookies
+    主要用于保存登录信息，比如记住密码，就是用Cookies实现的
+
+  区别
+    存储
+      Cookies 不超过4k 一般用于存储标识
+      sessionStorage&localStorage 一般5M或者更大
+    有效期
+      Cookies 一般服务器生成失效时间，如果没有则关闭浏览器失效，一般存于硬盘中
+      SessionStorage 当前浏览器页面有效，关闭页面或者关闭浏览器都会失效
+      LocalStorage 永久有效，关闭浏览器也会保存除非手动删除
+    作用域
+      Cookies和LocalStorage 在所有同源窗口下都是共享的
+      SessionStorage 当前浏览器的当前页面有效
+    易用性
+      Cookies 需要自己封装，原生接口不友好
+      SessionStorage LocalStorage 可以接受，比较方便
+
+  应用场景
+    Cookies  判断用户是否登陆过此网站，作记住密码，保存事件信息
+    SessionStorage  敏感账号一次性登录
+    LocalStorage 用户长期登录，长期在本地保存的数据
+*/
+
+    /*
+  Cookies 使用方法
+  cdn https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js
+  npm i js-cookie
+  本地下载引入
+ */
+  </script>
+</html>

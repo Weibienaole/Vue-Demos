@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <iframe
+      id="iframe"
+      src="https://www.w3school.com.cn/ui2017/compatible_opera.png"
+      style="dispaly:none"
+    ></iframe>
+
+    <a href="https://www.cnblogs.com/qdlhj/p/10110116.html">参考</a>
+  </body>
+  <script>
+
+    // var script = document.createElement("script");
+    // script.type = "text/javascript";
+
+    // // 传参一个回调函数名给后端，方便后端返回时执行这个在前端定义的回调函数
+    // script.src =
+    //   "http://www.domain2.com:8080/login?user=admin&callback=handleCallback";
+    // document.head.appendChild(script);
+
+    // // 回调执行函数
+    // function handleCallback(res) {
+    //   alert(JSON.stringify(res));
+    // }
+
+    /*
+   1.通过jsonp跨域
+     通常为了减轻wweb服务器的负载，js/css/img等静态资源一般都会分离到另一个独立域名的服务器上，在html页面中通过一些标签请求不同域名下的资源是被浏览器允许的，借此，可以动态的创建script标签，再请求一个带参数的网址实现跨域
+
+     但他只支持GET请求不支持POST
+  */
+
+    /*
+    2.postMessage
+      postMessage是HTML5 XMLHttpRequest level 2 中的API，是为数不多可以进行跨域操作的Windows属性之一用于解决：
+        页面和新窗口的数据传递
+        多窗口之间的数据传递
+        页面与嵌套iframe消息的传递
+        以上三个场景的跨域数据传递
+
+        postMessage(data, orgin)
+          data 是一个字符串  最好外层包裹 JSON.stringify()
+          orgin 协议+域名+端口号
+ */
+    let iframe = document.getElementById("iframe");
+    iframe.onload = function() {
+      let data = {
+        name: "datas"
+      };
+      iframe.contentWindow.postMessage(JSON.stringify(data), "http://www.domain2.com");
+    };
+    window.addEventListener("message", function(e) {
+      console.log("messgae is " + e.data);
+    });
+
+
+
+  /*
+    3. websocket协议跨域
+      WebSocket protocal 是HTML 5 的一种新协议 允许跨域
+      使用cnpm 安装 socket 
+      使用
+  
+  */
+
+  /*
+    再config文件的 index.js中 找到 proxyTable 进行代理设置
+    '/api':{
+      target: '' // 需要访问的域名
+      ...some code
+    }
+  
+  */
+  </script>
+</html>

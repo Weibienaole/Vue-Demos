@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="https://www.cnblogs.com/echolun/p/9419517.html">链接</a>
+    <a href="https://www.cnblogs.com/yjf512/p/3244882.html">链接</a>
+  </body>
+</html>
+<script>
+  /*
+在请求一个静态资源的时候(js/css/img) 特点是他们不会经常发生变化 将这些不经常变化的文件存储起来 对客户端来说是一个优化的解决方案 这就是客户端缓存的含义了
+  
+  */
+ /*
+  存放时间 Expirse Cache-control:max-age: 秒数  
+   Expirse和 max-age效果相同 但是max-age优先级更高且是HTTP1.1才有的(Expirse是HTTP1.0)
+   两者可同时存在 max-age是相对过期时间 Expirse是绝对过期时间 两者同时存在时向下兼容的
+
+   浏览器中如果再次需要想服务器发出请求之前会查看max-age是否过期，如果没有过期显示304 表示使用缓存来显示
+ */
+
+ /*
+  修改时间  Last-Modified / If-modify-since  服务端文件最后修改时间 / 浏览器文件最后修改时间 => 用来对比
+    如果时间到期的话 进行这次对比，与服务器对比修改时间判断文件是否修改，如果修改则请求返回200，反则返回304
+ 
+ */
+
+ /*
+  文件唯一标识  Etag / If-None-Match  服务器文件唯一标识 / 浏览器文件唯一标识
+  再次进行判断 如果不同则说明文件发生了改变 返回200 反则说明文件没有改变 返回304 使用缓存
+
+ */
+
+
+ // 各种刷新
+
+ /*
+  F5
+    浏览器发送给服务器If-Modify-since  进行对比时间，如果成功则返回304表示使用缓存  反之200重新请求
+
+  Ctrl+F5 强制更新
+    硬性清空缓存重新加载
+ */
+ 
+</script>
